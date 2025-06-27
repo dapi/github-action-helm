@@ -1,9 +1,9 @@
 # Helm Github Action
 
 <p align="center">
-  <img src="https://img.shields.io/github/license/hiberbee/github-action-helm?style=flat-square" alt="License">
-  <img src="https://img.shields.io/github/workflow/status/hiberbee/github-action-helm/CI?label=github-actions&style=flat-square" alt="GitHub Action Status">
-  <img src="https://img.shields.io/github/v/tag/hiberbee/github-action-helm?label=hiberbee%2Fgithub-action-helm&style=flat-square" alt="GitHub Workflow Version">
+  <img src="https://img.shields.io/github/license/dapi/github-action-helm?style=flat-square" alt="License">
+  <img src="https://img.shields.io/github/workflow/status/dapi/github-action-helm/CI?label=github-actions&style=flat-square" alt="GitHub Action Status">
+  <img src="https://img.shields.io/github/v/tag/dapi/github-action-helm?label=hiberbee%2Fgithub-action-helm&style=flat-square" alt="GitHub Workflow Version">
 </p>
 
 Install Helm 3.7.0, Helmfile 0.141.0, update repositories if repositories config provided, and optionally executes Helm or Helmfile command
@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Get repositories
-        uses: hiberbee/github-action-helm@1.5.0
+        uses: dapi/github-action-helm@1.5.0
         with:
           helm: repo list
           repository-config: test/repositories.yaml
@@ -34,7 +34,7 @@ jobs:
         working-directory: test/charts
 
       - name: Install release
-        uses: hiberbee/github-action-helm@latest
+        uses: dapi/github-action-helm@latest
         with:
           helm: upgrade --install --dry-run nginx test/charts/nginx
 
@@ -57,7 +57,7 @@ jobs:
         uses: hiberbee/github-action-minikube@1.5.0
 
       - name: Apply Helmfile
-        uses: hiberbee/github-action-helm@1.3.0
+        uses: dapi/github-action-helm@1.3.0
         with:
           helmfile: apply
           helmfile-config: test/helmfile.yaml

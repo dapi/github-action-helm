@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Get repositories
-        uses: hiberbee/github-action-helm@latest
+        uses: dapi/github-action-helm@latest
         with:
           helm: repo list
           repository-config: test/repositories.yaml
@@ -35,7 +35,7 @@ jobs:
         uses: hiberbee/github-action-minikube@latest
 
       - name: Apply Helmfile
-        uses: hiberbee/github-action-helm@latest
+        uses: dapi/github-action-helm@latest
         with:
           helmfile: apply
           helmfile-config: test/helmfile.yaml
@@ -47,6 +47,6 @@ jobs:
         run: kubectl get ingress
 
       - name: Uninstall release
-        uses: hiberbee/github-action-helm@latest
+        uses: dapi/github-action-helm@latest
         with:
           helm: uninstall nginx
