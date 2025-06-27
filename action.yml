@@ -1,12 +1,12 @@
 name: Helm & Helmfile Action
 description: Setup Helm and plugins, update repositories and applies configuration
-author: hiberbee
+author: hiberbee, dapi
 branding:
   icon: anchor
   color: blue
 inputs:
   helm-version:
-    default: 3.11.2
+    default: 3.18.2
     description: Helm version
     required: false
   helm:
@@ -26,7 +26,7 @@ inputs:
     description: Path to the file containing Helm repository names and URLs
     required: false
   helmfile-version:
-    default: 0.144.0
+    default: 1.1.2
     description: Helmfile version
     required: false
   helmfile:
