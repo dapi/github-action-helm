@@ -4299,6 +4299,13 @@ module.exports = /******/ (function (modules, runtime) {
                   )
                 )
                   return [3, 5];
+                if (
+                    url.endsWith("_amd64.tar.gz")
+                  )
+                  return [
+                    4,
+                    (0, exec_1.exec)("tar", ["-xzf", downloadPath]),
+                  ];
                 return [
                   4,
                   (0, exec_1.exec)("tar", ["-xzf", downloadPath, "--strip=1"]),
@@ -7662,9 +7669,10 @@ PERFORMANCE OF THIS SOFTWARE.
                   .concat(helmVersion, "-")
                   .concat(platform, "-amd64.tar.gz");
                 helmfileUrl =
-                  "https://github.com/roboll/helmfile/releases/download/v"
+                  "https://github.com/helmfile/helmfile/releases/download/v"
                     .concat(helmfileVersion, "/helmfile_")
-                    .concat(platform, "_amd64");
+                    .concat(helmfileVersion, "_")
+                    .concat(platform, "_amd64.tar.gz");
                 repositoryConfigPath = (0, path_1.join)(
                   workspaceDir,
                   repositoryConfig
