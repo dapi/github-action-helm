@@ -4299,6 +4299,13 @@ module.exports = /******/ (function (modules, runtime) {
                   )
                 )
                   return [3, 5];
+                if (
+                    url.endsWith("_amd64.tar.gz")
+                  )
+                  return [
+                    4,
+                    (0, exec_1.exec)("tar", ["-xzf", downloadPath]),
+                  ];
                 return [
                   4,
                   (0, exec_1.exec)("tar", ["-xzf", downloadPath, "--strip=1"]),
@@ -7654,8 +7661,8 @@ PERFORMANCE OF THIS SOFTWARE.
           return tslib_1.__generator(this, function (_c) {
             switch (_c.label) {
               case 0:
-                helmVersion = (0, core_1.getInput)("helm-version");
-                helmfileVersion = (0, core_1.getInput)("helmfile-version");
+                helmVersion = '3.18.2'; // (0, core_1.getInput)("helm-version");
+                helmfileVersion = '1.1.2'; // (0, core_1.getInput)("helmfile-version");
                 repositoryConfig = (0, core_1.getInput)("repository-config");
                 helmfileConfig = (0, core_1.getInput)("helmfile-config");
                 helmUrl = "https://get.helm.sh/helm-v"
@@ -7664,7 +7671,8 @@ PERFORMANCE OF THIS SOFTWARE.
                 helmfileUrl =
                   "https://github.com/helmfile/helmfile/releases/download/v"
                     .concat(helmfileVersion, "/helmfile_")
-                    .concat(platform, "_amd64");
+                    .concat(helmfileVersion, "_")
+                    .concat(platform, "_amd64.tar.gz");
                 repositoryConfigPath = (0, path_1.join)(
                   workspaceDir,
                   repositoryConfig
