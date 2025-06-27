@@ -7661,8 +7661,8 @@ PERFORMANCE OF THIS SOFTWARE.
           return tslib_1.__generator(this, function (_c) {
             switch (_c.label) {
               case 0:
-                helmVersion = '3.18.2'; // (0, core_1.getInput)("helm-version");
-                helmfileVersion = '1.1.2'; // (0, core_1.getInput)("helmfile-version");
+                helmVersion = (0, core_1.getInput)("helm-version");
+                helmfileVersion = (0, core_1.getInput)("helmfile-version");
                 repositoryConfig = (0, core_1.getInput)("repository-config");
                 helmfileConfig = (0, core_1.getInput)("helmfile-config");
                 helmUrl = "https://get.helm.sh/helm-v"
